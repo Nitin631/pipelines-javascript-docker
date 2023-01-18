@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: nitinpipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nitinpipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: nitinpipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: nitinpipelinesjavascriptdocker 
+          image: aksazure631.azurecr.io/nitinpipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
