@@ -33,8 +33,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: runner
+    pool: runner
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -57,8 +56,7 @@ stages:
   - deployment: Deploy
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
+    pool: runner
     environment: 'Nitin631pipelinesjavascriptdocker-2051.default'
     strategy:
       runOnce:
